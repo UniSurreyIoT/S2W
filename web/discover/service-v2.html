@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+        <title>S2W - Discover IoT-A Service</title>
+
+        <script type="text/javascript" src="/S2W/scripts/remote-query.js"></script>
+        <script type="text/javascript" src="/S2W/scripts/tooltip.js"></script>
+        <script type="text/javascript" src="/S2W/scripts/service-types.js"></script>
+
+
+    </head>    
+    <body>
+        <div id="ff_option_2" class="ff_option_class">
+            <form action="" id="mainform" name="mainform" enctype="application/x-www-form-urlencoded">
+                <div>
+                    <span style="font-weight: bold;font-family: Calibri;font-size:medium;">Enter keywords in the fields below:</span>
+                </div>
+                <br />
+                <div>
+                    <input id="desctype" name="desctype" type="hidden" value="service"></div>
+                <div>
+                    <fieldset style="width: 40%;">
+                        <legend><i>Service</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>ID: </td>
+                                    <td></td>
+                                    <td><input id="hasID" name="hasID" size="30" required="required" 
+                                               title='enter an ID for your Resource - e.g. "temperatureService_Heidelberg"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Name: </td>
+                                    <td></td>
+                                    <td><input id="hasName" name="hasName" size="30" required="required" 
+                                               title='enter a Name for your Resource - e.g. "Heidelberg Temperature"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Class: </td>
+                                    <td></td>
+                                    <td>
+                                        <select id="class" name="class" title='choose Class of Service'>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#ResourceService">ResourceService</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#EntityService">EntityService</option>                                           
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style=" width: 40%;">
+                        <legend><i>Service Endpoint</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td></td>
+                                    <td><input id="hasServiceEndpoint" name="hasServiceEndpointID" size="30" 
+                                               title='enter an ID for your Service Endpoint - e.g. "temperatureServiceEndpoint_Heidelberg"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Class: </td>
+                                    <td></td>
+                                    <td>
+                                        <select id="hasType" name="hasType" title='choose Service Endpoint class'>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#RestfulServiceEndpoint">RESTful</option>                                                                                        
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>  
+                                </tr>
+                                <tr>
+                                    <td>Path: </td>
+                                    <td></td>
+                                    <td><input id="endpointPath" name="endpointPath" size="30" 
+                                               title='enter a Path for your Service Endpoint - e.g. "localgateway/sensor/temperature"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Port: </td>
+                                    <td></td>
+                                    <td><input id="endpointPort" name="endpointPort" type ="number" 
+                                               title='enter a Port number for your Service Endpoint - e.g. "8023"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Protocol: </td>
+                                    <td></td>
+                                    <td><input id="endpointProtocol" name="endpointProtocol" size="30" 
+                                               title='enter a protocol type for your Service Endpoint - e.g. "HTTP"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Method supported: </td>
+                                    <td></td>
+                                    <td>
+                                        <select id="supportsMethod" name="supportsMethod" title='choose supported method'>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#Create">CREATE</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#Read">READ</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#Update">UPDATE</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#Delete">DELETE</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>  
+                                </tr>  
+                            </tbody>
+                        </table>
+                    </fieldset>                    
+                    <br />
+                    <br />
+                    <fieldset style=" width: 80%;">
+                            <legend><i>Location</i></legend>
+                            <table style="text-align: left;">
+                                <tbody><tr>
+                                        <td>Latitude:</td>
+                                        <td></td>
+                                        <td><input id="hasLatitude" name="hasLatitude" type="text" required="required" 
+                                                   title='enter Latitude co-ordinate or use mini-map' 
+                                                   value="" onclick="SelectAll('hasLatitude');" /></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Longitude:</td>
+                                        <td></td>
+                                        <td><input id="hasLongitude" name="hasLongitude" type="text" required="required" 
+                                                   title='enter Longitude co-ordinate or use mini-map' value="" 
+                                                   onclick="SelectAll('hasLongitude');" /></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Altitude:</td>
+                                        <td></td>
+                                        <td><input id="hasAltitude" name="hasAltitude" type="text" value="" 
+                                                   onclick="SelectAll('hasAltitude');" title='enter Altitude or use mini-map'>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>                    
+                            <table style="text-align: left;" >
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <fieldset>
+                                                <div id="map_canvas" style="width: 400px; height: 200px" 
+                                                     title='to set co-ordinates, click on position required or drag marker to position'><br/>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>   
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br />
+                        <br />          
+                    <fieldset style=" width: 40%;">
+                        <legend><i>Service Area</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+<!--                                <tr>
+                                 <td>Type of Area: </td>
+                                    <td></td>
+                                    <td>
+                                        <select name="hasServiceArea" title='choose Class of Service' onchange="getAreaDimensions(this.value);">
+                                            <option value="">Choose...</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#RectangularArea">Rectangular</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#CircularArea">Circular</option>                                           
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#PolygonalArea">Polygonal</option>
+                                            <option value="">Relative</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>-->
+                                <tr>
+                                    <td>Output: </td>
+                                    <td></td>
+                                    <td>
+                                        <input id="hasOutput" name="hasOutput" type="text" required="required" size="50" 
+                                               title='enter the type of output, e.g. http://purl.oclc.org/NET/ssnx/qu/quantity#temperature' value=""/>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>                            
+                        </table>
+                        <table style="text-align: left;">
+                            <tbody id="serviceAreaDimensions">
+                                
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </div>
+                <div>
+                    <br />
+                    <br /> 
+                    <table style="text-align: left;">
+                        <tbody>                                    
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><input type="button" id="submit2"  name="submit2" value="Publish"> | 
+                                    <input value="Clear" name="reset" type="reset">
+                                </td>
+                                <td></td>
+                                <td></td>                                 
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+            </form>
+        </div>
+        <br />        
+        <br />
+        <hr>            
+    </body>
+</html>

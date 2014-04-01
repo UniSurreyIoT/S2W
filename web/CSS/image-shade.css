@@ -1,0 +1,22 @@
+/* 
+    Document   : image-shade
+    Created on : 27-Jul-2012, 15:43:44
+    Author     : te0003
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+img
+{
+opacity:0.4;
+filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+img:hover
+{
+opacity:1.0;
+filter:alpha(opacity=100); /* For IE8 and earlier */
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+        <title>S2W - Publish IoT-A Resource</title>
+
+        <script type="text/javascript" src="/S2W/scripts/fileform-toggle.js"></script>
+        <script type="text/javascript" src="/S2W/scripts/remote-query.js"></script>        
+        <script type="text/javascript" src="/S2W/scripts/tooltip.js"></script>
+
+
+    </head>
+    <!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >
+    <body>
+        <div>
+
+            <br />
+            <span style="font-style: italic; font-family: Segoe UI;font-size:medium;">**Please choose to either upload a Resource Description file or complete the form**<br /><br /></span>
+        </div>
+        <div>
+            <fieldset  style="width:20%">
+                <input type="radio" id="ff_button_option_1" name ="ff_option" class="ff_button_option_class" value="1">Upload File
+                <input type="radio" id="ff_button_option_2" name ="ff_option" class="ff_button_option_class" value="2">Complete Form                    
+            </fieldset>
+            <br />
+            <br />                    
+        </div>
+        <!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >        
+        <div id="ff_option_1" class="ff_option_class">
+            <form action="/S2W/PublishObjectFile" name="uploadform" enctype="multipart/form-data" method="post">
+                <div>
+                    <input type="hidden" name="desctype" value="resource">
+                    
+                    <span style="font-weight: bold;font-family: Segoe UI;font-size:medium;">Upload Description File:</span>
+                    <br /><br />
+                    <fieldset style="width:40%">
+                        <input name="RDFFile" type="file" accept="application/rdf+xml"> <!-- size="chars"-->
+                        <input value="Publish" name="submit" type="submit"> | <input value="Clear" name="reset" type="reset">
+                    </fieldset>                
+                </div>
+            </form>
+        </div>            
+        <!--        name for forms affects the ajax variables-->
+        <!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >
+        <div id="ff_option_2" class="ff_option_class">
+            <form action="" id="mainform" name="mainform" enctype="application/x-www-form-urlencoded">
+                <div>
+                    <span style="font-weight: bold;font-family: Segoe UI;font-size:medium;">Complete Description Form:</span>
+                </div>
+                <br />
+                <div>
+                    <input id="desctype" name="desctype" type="hidden" value="resource"></div>
+                <div>
+                    <fieldset style="width: 40%;">
+                        <legend><i>Resource</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td></td>
+                                    <td><input name="hasID" id="hasID" size="30" required="required" 
+                                               title='enter an ID for your Resource - e.g. "SC-TEMP-001"'>
+                                    </td>
+                                    <td><div id="getDescButtonHolder"></div></td>
+                                    <td><div id="getDescProcess"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td></td>
+                                    <td><input name="hasName" id="hasName" required="required" size="30" 
+                                               title='enter a Name for your Resource - e.g. "SmartCampus Temperature"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Class (URI):</td>
+                                    <td></td>
+                                    <td>
+                                        <select name="class" id="hasClass" title='choose Class of Resource'>
+                                           <option value="OnDeviceResource">OnDeviceResource</option>
+                                           <option value="OnNetworkResource">OnNetworkResource</option>                                            
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Type (URI):</td>
+                                    <td></td>
+                                    <td>
+                                        <select name="hasType" id="hasType" title='choose Type of Resource'>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Sensor">Sensor</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Processor">Processor</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Actuator">Actuator</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Sinknode">Tag</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Other">Storage</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Tag:</td>
+                                    <td></td>
+                                    <td><input name="hasTag" id="hasTag" size="30" 
+                                               title='enter a Tag for your Resource - e.g. "temperature"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style=" width: 40%;">
+                        <legend><i>Location</i></legend>
+                        <table style="text-align: left;">
+                            <tbody><tr>
+                                    <td>Latitude:</td>
+                                    <td></td>
+                                    <td><input id="hasLatitude" name="hasLatitude" type="text" required="required" 
+                                               title='enter Latitude co-ordinate or use mini-map' 
+                                               value="" onclick="SelectAll('hasLatitude');" />
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Longitude:</td>
+                                    <td></td>
+                                    <td><input id="hasLongitude" name="hasLongitude" type="text" required="required" 
+                                               title='enter Longitude co-ordinate or use mini-map' 
+                                               value="" onclick="SelectAll('hasLongitude');" />
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Altitude:</td>
+                                    <td></td>
+                                    <td><input id="hasAltitude" name="hasAltitude" type="text" value="" 
+                                               onclick="SelectAll('hasAltitude');" 
+                                               title='enter Altitude or use mini-map'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>                    
+                        <table style="text-align: left;" >
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <fieldset>
+                                            <div id="map_canvas" style="width: 400px; height: 200px" 
+                                                 title='to set co-ordinates, click on position required or drag marker to position'><br/>
+                                            </div>
+                                        </fieldset>
+                                    </td>
+                                </tr>   
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />                    
+                    <fieldset style="width:70% ">
+                        <legend><i>Linked Location Ontologies</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Local Location (URI):</td>
+                                    <td></td>                                
+                                    <td><input type="search" name="locallocationword" 
+                                               title='click to choose from list of local locations' 
+                                               onclick="ajaxFunctionLocalLocation();">
+                                    </td>
+                                    <td></td>                                    
+                                    <td><select id="hasLocalLocation" name="hasLocalLocation" 
+                                                title ="choose.." style="width:200px; display:block;"></select>
+                                    </td>
+                                    <td><div id="LocalLocationImage"></div></td> 
+                                </tr>
+                                <tr>
+                                    <td>Global Location (URI):</td>
+                                    <td></td>
+                                    <td>
+                                        <input type="search" name="dbpedialocationword" 
+                                               title='enter keyword for a global location - e.g. "Guildford, then double-click' 
+                                               ondblclick="ajaxFunctionDBPediaLocation();">
+                                    </td>
+                                    <td><select name="locationTopicList" title='choose a topic to refine search'>
+                                            <option value="ALL">Any Thing</option>
+                                            <option value="http://dbpedia.org/ontology/Place">Any Place</option>
+                                            <option value="http://dbpedia.org/ontology/SiteOfSpecialScientificInterest">SiteOfSpecialScientificInterest
+                                                (UK)</option>
+                                            <option value="http://dbpedia.org/ontology/Building">Building</option>
+                                            <option value="http://dbpedia.org/ontology/Bridge">Bridge</option>
+                                            <option value="http://dbpedia.org/ontology/Canal">Canal</option>
+                                            <option value="http://dbpedia.org/ontology/Road">Road</option>
+                                            <option value="http://dbpedia.org/ontology/Stream">Stream</option>
+                                            <option value="http://www.w3.org/2003/01/geo/wgs84_pos">SpatialThing</option>
+                                            <option value="http://dbpedia.org/ontology/BodyOfWater">BodyOfWater</option>
+                                            <option value="http://dbpedia.org/ontology/HistoricPlace">HistoricPlace</option>
+                                        </select></td>
+                                    <td><select id="hasGlobalLocation" name="hasGlobalLocation" style="width:200px; 
+                                                display:block;" title='choose from list'></select>
+                                    </td>
+                                    <td><div id="DBPediaLocationImage"></div></td>                                
+                                </tr>
+                                <tr>
+                                    <td>*Number of search results:</td>
+                                    <td></td>
+                                    <td><input name="limit" type="number" value="10" min="1" max="100"><br /></td>
+                                    <td></td>
+                                    <td></td>                   
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style="width: 40%;">
+                        <legend><i>Temporal</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Time Offset:</td>
+                                    <td></td>
+                                    <td><input id="hasTimeOffset" name="hasTimeOffset" size="30" 
+                                               title='enter the time offset for your Resource - e.g. "0"'>
+                                    </td>                                    
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                                </table>
+                        </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style=" width: 70%"> 
+                        <legend><i>Linked Host Ontology</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Host (URI):</td>
+                                    <td></td>
+                                    <td><input id="isHostedOn" name="isHostedOn" type="url" size="70"  
+                                               title='Enter the URL for this interface'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style=" width: 70%">
+                        <legend><i>Linked IoT-A Service Model</i></legend>
+                        <table style="text-align: left;" border="0" cellpadding="2" cellspacing="2">
+                            <tbody>                                
+                                <tr>
+                                    <td>Exposing Service (URI):</td>
+                                    <td></td>
+                                    <td><input id="isExposedThroughService" name="isExposedThroughService" type="url" 
+                                               size="70" title='Enter the URL for this interface'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+<!--                                <tr>
+                                    <td>*Number of search results:</td>
+                                    <td></td>
+                                    <td><input name="limit" type="number" value="10" min="1" max="100"><br /></td>
+                                    <td></td>
+                                    <td></td>                   
+                                    <td></td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    </fieldset>                    
+                </div>
+                <div>
+                    <br />
+                    <br /> 
+                    <table style="text-align: left;">
+                        <tbody>                                    
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><input type="button" id="submit2"  name="submit2" value="Publish"> | 
+                                    <input value="Clear" name="reset" type="reset"></td>
+                                <td></td>
+                                <td></td>                                 
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+            </form>
+        </div>
+        <br />        
+        <br />
+        <hr>            
+    </body>
+</html>

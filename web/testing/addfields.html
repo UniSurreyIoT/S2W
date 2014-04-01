@@ -1,0 +1,65 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            var counter = 1;
+            var limit = 20;
+            var attributes=5;
+            
+            
+            function addInput(divName){
+                if (counter == limit)  {
+                    alert("You have reached the limit of adding " + counter + " inputs");
+                }
+                else {
+                    var newdiv = document.createElement('div');
+                    var attributeTable = document.getElementById('attributetable')
+                    newdiv.innerHTML = "Input "  +(counter+1) +"<br>"+ attributeTable.outerHTML;                   
+                    document.getElementById(divName).appendChild(newdiv);
+                    
+//                    var removalLink = document.createElement('a');
+//                    removalLink.onclick = function(){
+//                        this.parentNode.parentNode.removeChild(this.parentNode)
+//                        counter--;
+//                    }
+//                    var removalText = document.createTextNode('Remove Field');
+//                    removalLink.appendChild(removalText);
+//                    newdiv.appendChild(removalLink);
+                    counter++;
+                }
+            }
+            
+            
+        </script>
+    </head>
+    <body>
+        <div>
+            <form method="POST">
+                <div id="dynamicInput">
+                    Input 1 
+                    <br>
+                    <table id="attributetable" style="text-align: left;">
+                        <tbody>
+                            <tr>
+                                <td>aaa<input type="text" name="aaa"></td>
+                                <td>bbb<input type="text" name="bbb"></td>
+                                <td>ccc<input type="text" name="ccc"></td>
+                                <td>ddd<input type="text" name="ddd"></td>
+                                <td>eee<input type="text" name="eee"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+                <input type="button" value="Add another Input" onClick="addInput('dynamicInput');">
+            </form>
+        </div>
+    </body>
+</html>

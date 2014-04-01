@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns="http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityInstance.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:vm="http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityModel.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityInstance.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityModel.owl"/>
+  </owl:Ontology>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <vm:Location rdf:ID="Location_10BA02">
+    <vm:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >51.243774</vm:hasLatitude>
+    <vm:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >-0.588208</vm:hasLongitude>
+    <vm:hasLocalLocation rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E10"/>
+    <vm:hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.geonames.org/2647793/</vm:hasGlobalLocation>
+    <vm:hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >45.0</vm:hasAltitude>
+  </vm:Location>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <vm:VirtualEntity rdf:ID="BA_10_02">
+    <vm:isMobile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</vm:isMobile>
+    <vm:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#Room</vm:hasType>
+    <vm:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BA 10 02</vm:hasName>
+    <vm:hasDomainAttribute>
+      <vm:DomainAttribute rdf:ID="HumidityAttributeE10">
+        <vm:hasAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >humidity</vm:hasAttributeName>
+        <vm:hasAttributeType rdf:resource="http://purl.oclc.org/NET/ssnx/qu/quantity#humidity"/>
+      </vm:DomainAttribute>
+    </vm:hasDomainAttribute>
+    <vm:hasLocalIdentifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E10</vm:hasLocalIdentifier>
+  </vm:VirtualEntity>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <vm:VirtualEntity rdf:ID="BA_38_01">
+    <vm:hasDomainAttribute>
+      <vm:DomainAttribute rdf:ID="HumidityAttributeBA38">
+        <vm:hasAttributeType rdf:resource="http://purl.oclc.org/NET/ssnx/qu/quantity#humidity"/>
+        <vm:hasAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >humidity</vm:hasAttributeName>
+      </vm:DomainAttribute>
+    </vm:hasDomainAttribute>
+    <vm:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BA 38 01</vm:hasName>
+    <vm:hasA rdf:resource="#HumidityAttributeBA38"/>
+    <vm:hasA>
+      <vm:Location rdf:ID="Location_38BA01">
+        <vm:hasLocalLocation rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#U38"/>
+        <vm:hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/2647793/</vm:hasGlobalLocation>
+        <vm:hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >45.0</vm:hasAltitude>
+        <vm:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >-0.588208</vm:hasLongitude>
+        <vm:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >51.243774</vm:hasLatitude>
+      </vm:Location>
+    </vm:hasA>
+    <vm:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#Room</vm:hasType>
+    <vm:hasLocation rdf:resource="#Location_38BA01"/>
+    <vm:isMobile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</vm:isMobile>
+    <vm:hasLocalIdentifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#U38</vm:hasLocalIdentifier>
+  </vm:VirtualEntity>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <vm:VirtualEntity rdf:ID="BA_01_02">
+    <vm:hasLocalIdentifier rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E1</vm:hasLocalIdentifier>
+    <vm:hasDomainAttribute>
+      <vm:DomainAttribute rdf:ID="TempAttributeE1">
+        <vm:hasAttributeType rdf:resource="http://purl.oclc.org/NET/ssnx/qu/quantity#temperature"/>
+        <vm:hasAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >temperature</vm:hasAttributeName>
+      </vm:DomainAttribute>
+    </vm:hasDomainAttribute>
+    <vm:hasLocation>
+      <vm:Location rdf:ID="Location_01BA02">
+        <vm:hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >51.243774</vm:hasLatitude>
+        <vm:hasLocalLocation rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E1"/>
+        <vm:hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >-0.588208</vm:hasLongitude>
+        <vm:hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.geonames.org/2647793/</vm:hasGlobalLocation>
+        <vm:hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >45.0</vm:hasAltitude>
+      </vm:Location>
+    </vm:hasLocation>
+    <vm:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#Room</vm:hasType>
+    <vm:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BA 01 02</vm:hasName>
+    <vm:isMobile rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</vm:isMobile>
+  </vm:VirtualEntity>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+  <owl:AllDisjointClasses/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

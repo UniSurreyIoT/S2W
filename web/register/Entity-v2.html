@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+        <title>S2W - Publish IoT-A Entity</title>
+
+        <script type="text/javascript" src="/S2W/scripts/remote-query.js"></script>
+        <script type="text/javascript" src="/S2W/scripts/fileform-toggle.js"></script>
+        <script type="text/javascript" src="/S2W/scripts/tooltip.js"></script>
+
+
+    </head>
+    <!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >
+    <body>
+        <div>
+
+            <br />
+            <span style="font-style: italic; font-family: Calibri;font-size:medium;">**Please choose to either upload an Entity Description file or complete the form**<br /><br /></span>
+        </div>
+        <div>
+            <fieldset  style="width:300px">
+                <input type="radio" id="ff_button_option_1" name ="ff_option" class="ff_button_option_class" value="1">Upload File
+                <input type="radio" id="ff_button_option_2" name ="ff_option" class="ff_button_option_class" value="2">Complete Form                    
+            </fieldset>
+            <br />
+            <br />                    
+        </div>
+        <!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >        
+        <div id="ff_option_1" class="ff_option_class">
+            <form action="/S2W/PublishObjectFile" name="uploadform" enctype="multipart/form-data" method="post">
+                <div>
+                    <input type="hidden" name="desctype" value="entity">
+
+                    <span style="font-weight: bold;font-family: Calibri;font-size:medium;">Upload Description File:</span>
+                    <br /><br />
+                    <fieldset style="width:40%">
+                        <input name="RDFFile" type="file" accept="application/rdf+xml"> <!-- size="chars"-->
+                        <input value="Publish" name="submit" type="submit"> | <input value="Clear" name="reset" type="reset">
+                    </fieldset>                
+                </div>
+            </form>
+        </div>            
+        <!--        name for forms affects the ajax variables-->
+        <!- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >
+        <div id="ff_option_2" class="ff_option_class">
+            <form action="" id="mainform" name="mainform" enctype="application/x-www-form-urlencoded">
+                <div>
+                    <span style="font-weight: bold;font-family: Calibri;font-size:medium;">Complete Description Form:</span>
+                </div>
+                <br />
+                <div>
+                    <input id="desctype" name="desctype" type="hidden"  value="entity">
+                </div>
+                <div>
+                    <input id="class" name="class" type="hidden" value="VirtualEntity">
+                </div>
+                <div>
+                    <fieldset style="width: 50%;">
+                        <legend><i>Entity</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td></td>
+                                    <td><input id="hasID" name="hasID" size="30" required="required" 
+                                               title='enter an ID for your Entity - e.g. "UNIS-BA-01-32"'>
+                                    </td>
+                                    <td><div id="getDescButtonHolder"></div></td>
+                                    <td><div id="getDescProcess"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td></td>
+                                    <td><input id="hasName" name="hasName" size="30" required="required" 
+                                               title='enter a Name for your Entity - e.g. "Room 32BA01"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Type: </td>
+                                    <td></td>
+                                    <td><input id="hasType" name="hasType" size="70" 
+                                               title='Enter a Type for this entity e.g. "Room"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Local Identifier (URI):</td>
+                                    <td></td>
+                                    <td><input id="hasLocalIdentifier" name="hasLocalIdentifier" type="url" size="70"  
+                                               title='Enter a local Identifier (i.e. linked local location ontology URI) for this entity e.g. "http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E10"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Global Identifier (URI):</td>
+                                    <td></td>
+                                    <td><input id="hasGlobalIdentifier" name="hasGlobalIdentifier" type="url" size="70"  
+                                               title='Enter a Global Identifier (linked URI) for this entity e.g. "http://dbpedia.org/Room"'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Owner (URI): </td>
+                                    <td></td>
+                                    <td><input id="hasOwner" name="hasOwner" type="url" size="70" 
+                                               title='enter the owner of the Entity (linked URI)' />
+                                    </td>
+                                    <td></td>
+                                    <td></td>                                        
+                                </tr>
+                                <tr>
+                                    <td>Mobile: </td>
+                                    <td></td>
+                                    <td>
+                                        <select id="isMobile" name="isMobile" title='is the Entity mobile?'>
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>                                            
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />                    
+                    <fieldset style=" width: 80%;">
+                        <legend><i>Domain Attribute</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Attribute Name: </td>
+                                    <td></td>
+                                    <td><input id="hasAttributeName" name="hasAttributeName" type="text" 
+                                               title='enter the name of the attribute e.g. "Temperature"' />
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Attribute Type (URI): </td>
+                                    <td></td>
+                                    <td><input id="hasAttributeType" name="hasAttributeType" type="url" size="60"
+                                               title='enter the type of the attribute (linked URI) e.g. "http://purl.oclc.org/NET/ssnx/qu/quantity#temperature"' />
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>                           
+                        <br />
+                        <fieldset style=" width: 80%;">
+                            <legend><i>Value Container</i></legend>
+                            <table style="text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td>Value: </td>
+                                        <td></td>
+                                        <td><input id="value" name="value" type="text" 
+                                                   title='enter the value of the attribute e.g. "21"' />
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br />
+                            <fieldset style=" width: 80%;">
+                                <legend><i>Value Metadata</i></legend>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Type (URI): </td>
+                                            <td></td>
+                                            <td><input id="metadataType" name="metadataType" type="url" 
+                                                       title='enter the metadata type (linked URI), e.g. a metric unit' />
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Value: </td>
+                                            <td></td>
+                                            <td><input id="metadataValue" name="metadataValue" type="text" 
+                                                       title='enter the value of the metadata type' />
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>                                
+                                    </tbody>
+                                </table>
+                            </fieldset>
+                            <br /><br />
+                        </fieldset>
+                        <br /><br />
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style=" width: 80%;">
+                        <legend><i>Location</i></legend>
+                        <table style="text-align: left;">
+                            <tbody><tr>
+                                    <td>Latitude:</td>
+                                    <td></td>
+                                    <td><input id="hasLatitude" name="hasLatitude" type="text" required="required"  
+                                               value="" onclick="SelectAll('hasLatitude');" 
+                                               title='enter Latitude co-ordinate or use mini-map'/>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Longitude:</td>
+                                    <td></td>
+                                    <td><input id="hasLongitude" name="hasLongitude" type="text" required="required" 
+                                               title='enter Longitude co-ordinate or use mini-map' 
+                                               value="" 
+                                               onclick="SelectAll('hasLongitude');" />
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Altitude:</td>
+                                    <td></td>
+                                    <td><input id="hasAltitude" name="hasAltitude" type="text" value="" 
+                                               onclick="SelectAll('hasAltitude');" 
+                                               title='enter Altitude or use mini-map'>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>                    
+                        <table style="text-align: left;" >
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <fieldset>
+                                            <div id="map_canvas" style="width: 400px; height: 200px" 
+                                                 title='to set co-ordinates, click on position required or drag marker to position'><br/>
+                                            </div>
+                                        </fieldset>
+                                    </td>
+                                </tr>   
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />                    
+                    <fieldset style="width:80% ">
+                        <legend><i>Linked Location Ontologies</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Local Location:</td>
+                                    <td></td>                                
+                                    <td><input id="locallocationword" name="locallocationword" type="search" 
+                                               title='click to choose from list of local locations' 
+                                               onclick="ajaxFunctionLocalLocation();">
+                                    </td>
+                                    <td></td>                                    
+                                    <td>
+                                        <select id="hasLocalLocation" name="hasLocalLocation" title ="choose.." style="width:200px; display:block;"></select>
+                                    </td>
+                                    <td><div id="LocalLocationImage"></div></td>                                         
+                                </tr>
+                                <tr>
+                                    <td>Global Location:</td>
+                                    <td></td>
+                                    <td><input type="search" name="dbpedialocationword" 
+                                               title='enter keyword for a global location - e.g. "Guildford, then double-click' 
+                                               ondblclick="ajaxFunctionDBPediaLocation();">
+                                    </td>
+                                    <td><select name="locationTopicList" title='choose a topic to refine search'>
+                                            <option value="ALL">Any Thing</option>
+                                            <option value="http://dbpedia.org/ontology/Place">Any Place</option>
+                                            <option value="http://dbpedia.org/ontology/SiteOfSpecialScientificInterest">SiteOfSpecialScientificInterest
+                                                (UK)</option>
+                                            <option value="http://dbpedia.org/ontology/Building">Building</option>
+                                            <option value="http://dbpedia.org/ontology/Bridge">Bridge</option>
+                                            <option value="http://dbpedia.org/ontology/Canal">Canal</option>
+                                            <option value="http://dbpedia.org/ontology/Road">Road</option>
+                                            <option value="http://dbpedia.org/ontology/Stream">Stream</option>
+                                            <option value="http://www.w3.org/2003/01/geo/wgs84_pos">SpatialThing</option>
+                                            <option value="http://dbpedia.org/ontology/BodyOfWater">BodyOfWater</option>
+                                            <option value="http://dbpedia.org/ontology/HistoricPlace">HistoricPlace</option>
+                                        </select></td>
+                                    <td><select id="hasGlobalLocation" name="hasGlobalLocation" style="width:200px; display:block;" 
+                                                title='choose from list'></select>
+                                    </td>
+                                    <td><div id="DBPediaLocationImage"></div></td>                                
+                                </tr>
+                                <tr>
+                                    <td>*Number of search results:</td>
+                                    <td></td>
+                                    <td>
+                                        <input id="limit" name="limit" type="number" value="10" min="1" max="100"><br />
+                                    </td>
+                                    <td></td>
+                                    <td></td>                   
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset style="width: 40%;">
+                        <legend><i>Temporal Feature</i></legend>                            
+                        <fieldset style="width: 40%;">
+                            <legend><i>Date Range</i></legend>
+                            <table style="text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td>Start Date: </td>
+                                        <td></td>
+                                        <td><input id="hasStartDate" name="hasStartDate" type="date" 
+                                                   title='enter the start Date for your Entity - e.g. "01/01/13"'>
+                                        </td>                                    
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>End Date: </td>
+                                        <td></td>
+                                        <td><input id="hasEndDate" name="hasEndDate" type="date" 
+                                                   title='enter the end Date for your Entity - e.g. "01/02/13"'>
+                                        </td>                                    
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br />
+                        <fieldset style="width: 40%;"> 
+                            <legend><i>Time Range</i></legend>
+                            <table style="text-align: left;">
+                                <tr>
+                                    <td>Start Time: </td>
+                                    <td></td>
+                                    <td><input id="hasStartTime" name="hasStartTime" type="time" 
+                                               title='enter the start Time for your Entity - e.g. "06:00"'>
+                                    </td>                                    
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>End Time: </td>
+                                    <td></td>
+                                    <td><input id="hasEndTime" name="hasEndTime" type="time" 
+                                               title='enter the start Time for your Entity - e.g. "06:00"'>
+                                    </td>                                    
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br />
+                    </fieldset>
+                    <br />
+                    <br />
+                </div>
+                <div>
+                    <br />
+                    <br /> 
+                    <table style="text-align: left;">
+                        <tbody>                                    
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><input  id="submit2"  name="submit2" type="button" value="Publish"> | 
+                                    <input value="Clear" name="reset" type="reset"></td>
+                                <td></td>
+                                <td></td>                                 
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+            </form>
+        </div>
+        <br />        
+        <br />
+        <hr>            
+    </body>
+</html>

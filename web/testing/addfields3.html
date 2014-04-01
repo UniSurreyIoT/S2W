@@ -1,0 +1,38 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            
+            $(document).ready(function(){
+                $("#add").click(function() {
+                    var intId = $("#buildyourform div").length + 1;
+                    var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+                    var fName = $("<input type=\"text\" class=\"fieldname\" />");
+                    var fType = $("<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>");
+                    var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+                    removeButton.click(function() {
+                        $(this).parent().remove();
+                    });
+                    fieldWrapper.append(fName);
+                    fieldWrapper.append(fType);
+                    fieldWrapper.append(removeButton);
+                    $("#buildyourform").append(fieldWrapper);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <fieldset id="buildyourform">
+            <legend>Build your own form!</legend>
+        </fieldset>
+        <input type="button" value="Preview form" class="add" id="preview" />
+        <input type="button" value="Add a field" class="add" id="add" />
+    </body>
+</html>

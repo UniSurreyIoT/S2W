@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Demo</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(function() {
+                    $('div.ff_option_class').hide(); // Hide divs
+                    $('input.ff_button_option_class:checked').each(function() { // Show for checked option
+                        $('#ff_option_' + $(this).val()).show(500);
+                    });
+                    $('input.ff_button_option_class').click(function() { // When clicked
+                        $('div.ff_option_class').hide(500); // Hide others
+                        $('#ff_option_' + $(this).val()).show(500); // Show associated one
+                    });
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div>
+            <fieldset>
+                <input type="radio" id="ff_button_option_1" name ="ff_option" class="ff_button_option_class" value="1">Upload File
+                <input type="radio" id="ff_button_option_2" name ="ff_option" class="ff_button_option_class" value="2">Complete Form
+                <br />
+                <br />
+            </fieldset>
+        </div>
+        <div id="ff_option_1" class="ff_option_class">
+            <form action="/S2W/PublishObjectFile" name="uploadform" enctype="multipart/form-data" method="post">
+                <div>
+                    <input type="hidden" name="desctype" value="resource">
+                    <span style="font-weight: bold;font-family: Calibri;font-size:medium;">Upload Description File:</span>
+                    <br /><br />
+                    <fieldset>
+                        <input name="RDFFile" type="file"> <!-- size="chars"-->
+                        <input value="Publish" name="submit" type="submit"> | <input value="Clear" name="reset" type="reset">
+                    </fieldset>                
+                </div>
+            </form>
+        </div>
+        <div id="ff_option_2" class="ff_option_class">
+            <form action="/S2W/PublishObjectForm" name="mainform" enctype="multipart/form-data" method="post">
+                <div>
+                    <span style="font-weight: bold;font-family: Calibri;font-size:medium;">Complete Description Form:</span>
+                </div>
+                <br />
+                <div><input type="hidden" name="desctype" value="resource"></div>
+                <div>
+                    <fieldset>
+                        <legend><i>Definition</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Type:</td>
+                                    <td></td>
+                                    <td>
+                                        <select name="RType" title='choose Type of Resource'>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#Sensor">Sensor</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#Processor">Processor</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#Actuator">Actuator</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#Sinknode">Sinknode</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#Other">Other</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+
+                                    <td>Name:</td>
+                                    <td>&nbsp;</td>
+                                    <td><input name="RName" required="required" title='enter a Name for your Resource - e.g. "SmartCampus Temperature"'></td>
+                                    <td>&nbsp;</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td></td>
+                                    <td><input name="RID" required="required" title='enter an ID for your Resource - e.g. "SC-TEMP-001"'></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Tag:</td>
+                                    <td></td>
+                                    <td><input name="Tag" title='enter a Tag for your Resource - e.g. "temperature"'></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Description:</td>
+                                    <td></td>
+                                    <td><textarea cols="35" rows="3" name="RDescription" title='enter a Description for the Resource'></textarea></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset>
+                        <legend><i>Interface</i></legend>
+                        <table style="text-align: left;" border="0" cellpadding="2" cellspacing="2">
+                            <tbody>
+                                <tr>
+                                    <td>Type:</td>
+                                    <td></td>
+                                    <td>
+                                        <select name="RIntType" title='choose Type of Service Interface'>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#USDL">USDL</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#WADL">WADL</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#WSDL">WSDL</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#OWLS">OWLS</option>
+                                            <option value="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#ResourceCreator">Resource Creator</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>URL:</td>
+                                    <td></td>
+                                    <td><input type="url" size="70" name="RIntURI" title='Enter the URL for this interface'></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset>
+                        <legend><i>Linked Data</i></legend>
+
+                        <table style="text-align: left;">
+                            <tbody>
+
+                                <tr>
+                                    <td>Linked-data tag (from DBPedia):</td>
+                                    <td>
+                                        <input type="search" name="tagword" title='enter a keyword - e.g. "Surrey" - 
+                                               then DOUBLE-CLICK for suggestions from DBPedia' ondblclick="ajaxFunctionDBPediaTag()">
+                                    </td>
+                                    <td>
+                                        <select name="tagTopicList">
+                                            <option value="ALL">Any Topic</option>
+                                            <option value="http://dbpedia.org/ontology/Place">Place</option>
+                                            <option value="http://dbpedia.org/ontology/Species">Species</option>
+                                            <option value="http://dbpedia.org/ontology/Organisation">Organisation</option>
+                                            <option value="http://dbpedia.org/ontology/Infrastructure">Infrastructure</option>
+                                            <option value="http://www.w3.org/2003/01/geo">SpatialThings</option>
+                                        </select>
+                                    </td>
+                                    <td>            
+                                        <select name="TagList">
+                                        </select>
+                                    </td>
+                                    <td><div id="DBPediaTagImage"></div></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Linked to:</td>                                   
+                                    <td>
+                                        <select name="RLinkedTo" title='link the Resource to a Entity'>
+                                            <option value="EM">Search Entity Model</option>
+                                            <option value="DBPedia">Search DBPedia</option>
+                                            <option value="DMOnto">Search Domain Ontology</option>
+                                        </select>
+                                    </td>
+                                    <td><input name="RLinkedToText"></td>                                    
+                                    <td><select name="RLinkedToValue"></select></td>
+                                    <td></td>
+                                </tr>                                
+                                <tr>
+                                    <td>*Limit number of search suggestions to:</td>
+
+                                    <td><input name="limit" type="number" value="10" min="1" max="100"><br /></td>
+                                    <td></td>
+                                    <td></td>                   
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </div>
+                <div>
+                    <br />
+                    <br />
+                    <fieldset>
+                        <legend><i>Spatial</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Local Location (linked ontology):</td>
+                                    <td></td>                                
+                                    <td><input type="search" name="locallocationword" title='double click to choose from list of local locations' ondblclick="ajaxFunctionLocalLocation()"></td>
+                                    <td></td>
+                                    <td><select name="localList"></select></td>
+                                    <td><div id="LocalLocationImage"></div></td> 
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Global Location (linked ontology):</td>
+                                    <td></td>
+                                    <td><input type="search" name="dbpedialocationword" title='enter keyword for a global location - e.g. "Guildford' ondblclick="ajaxFunctionDBPediaLocation()"></td>
+                                    <td><select name="locationTopicList" title='choose a topic to refine search'>
+                                            <option value="ALL">Any Thing</option>
+                                            <option value="http://dbpedia.org/ontology/Place">Any Place</option>
+                                            <option value="http://dbpedia.org/ontology/SiteOfSpecialScientificInterest">SiteOfSpecialScientificInterest
+                                                (UK)</option>
+                                            <option value="http://dbpedia.org/ontology/Building">Building</option>
+                                            <option value="http://dbpedia.org/ontology/Bridge">Bridge</option>
+                                            <option value="http://dbpedia.org/ontology/Canal">Canal</option>
+                                            <option value="http://dbpedia.org/ontology/Road">Road</option>
+                                            <option value="http://dbpedia.org/ontology/Stream">Stream</option>
+                                            <option value="http://www.w3.org/2003/01/geo/wgs84_pos">SpatialThing</option>
+                                            <option value="http://dbpedia.org/ontology/BodyOfWater">BodyOfWater</option>
+                                            <option value="http://dbpedia.org/ontology/HistoricPlace">HistoricPlace</option>
+                                        </select></td>
+                                    <td><select name="locationList" title='choose from list'></select></td>
+                                    <td><div id="DBPediaLocationImage"></div></td>                                
+                                </tr>
+
+                                <tr>
+                                    <td>Location Latitude:</td>
+                                    <td></td>
+                                    <td><input type="text" name="RLatitude" title='enter Latitude co-ordinate or use mini-map' id ="lat" value="" onclick="SelectAll('lat');" /></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Location Longitude:</td>
+                                    <td></td>
+                                    <td><input name="RLongitude" title='enter Longitude co-ordinate or use mini-map' id="lng" value="" onclick="SelectAll('lng');" /></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Location Altitude:</td>
+                                    <td></td>
+                                    <td><input type="text" name="RAltitude" id="alt" value="" title='enter Altitude'></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                            </tbody>
+                        </table>                    
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><div id="map_canvas" style="width: 400px; height: 200px" title='to set co-ordinates, click on position required or drag marker to position'><br/></div></td>
+                                </tr>   
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <fieldset>
+                        <legend><i>Temporal</i></legend>
+                        <table style="text-align: left;">
+                            <tbody>
+                                <tr>
+                                    <td>Time Zone:</td>
+                                    <td></td>
+                                    <td><select name="RTimeZone" title='select time zone'>
+                                            <option value="http://www.w3.org/2006/timezone-world#BIT">GMT-12</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#SST">GMT-11</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#HST">GMT-10</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#GIT">GMT-9</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#PST">GMT-8</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#MST">GMT-7</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#CST">GMT-6</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#EST">GMT-5</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#AST">GMT-4</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#ART">GMT-3</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#GST">GMT-2</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#CVT">GMT-1</option>
+                                            <option selected="selected"  value="http://www.w3.org/2006/timezone-world#GMT">GMT</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#CET">GMT+1</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#EET">GMT+2</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#EAT">GMT+3</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#AST">GMT+4</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#PST">GMT+5</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#BTT">GMT+6</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#THA">GMT+7</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#ACT">GMT+8</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#JST">GMT+9</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#AEST">GMT+10</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#AEDT">GMT+11</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#FJT">GMT+12</option>
+                                            <option value="http://www.w3.org/2006/timezone-world#PHOT">GMT+13</option>
+                                        </select></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <table style="text-align: left;">
+                        <tbody>                                    
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><input type="submit" name="submit" value="Publish"> | <input value="Clear" name="reset" type="reset"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+            </form>
+
+        </div>
+    </body>
+</html>

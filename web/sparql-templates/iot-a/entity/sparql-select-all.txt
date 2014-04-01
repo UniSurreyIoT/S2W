@@ -1,0 +1,17 @@
+PREFIX em: <http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityModel.owl#>
+Select *
+WHERE {
+
+?uri em:hasName  ?hasName.
+OPTIONAL{?uri em:hasTag  ?hasTag.}
+OPTIONAL{?uri em:hasType ?hasType.}
+?uri em:hasLatitude  ?hasLatitude.
+?uri em:hasLongitude  ?hasLongitude.
+OPTIONAL{?uri em:hasAltitude  ?hasAltitude.}
+OPTIONAL{?uri em:hasGlobalLocation  ?hasGlobalLocation.}
+OPTIONAL{?uri em:hasLocalLocation  ?hasLocalLocation.}
+OPTIONAL{?uri em:hasLocalIdentifier  ?hasLocalIdentifier.}
+OPTIONAL{?uri em:hasGlobalIdentifier  ?hasGlobalIdentifier.}
+OPTIONAL{?uri em:isAssociatedToService ?isAssociatedToService}
+
+}

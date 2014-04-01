@@ -1,0 +1,13 @@
+PREFIX sm: <http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#>
+Select *
+WHERE {
+
+?uri sm:hasName  ?hasName.
+?uri sm:hasTag  ?hasTag.
+?uri sm:hasLatitude  ?hasLatitude.
+?uri sm:hasLongitude  ?hasLongitude.
+?uri sm:hasAltitude  ?hasAltitude.
+?uri sm:hasGlobalLocation  ?hasGlobalLocation.
+?uri sm:hasLocalLocation  ?hasLocalLocation.
+
+}

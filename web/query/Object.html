@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>S2W - Query Object</title>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+        <link rel="StyleSheet" href="/S2W/CSS/background.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/input-formatting.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/tooltip.css" type="text/css">
+
+        <script  src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> <!--dont change!-->
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+        <script type="text/javascript" src="/S2W/scripts/query-multi-form.js"></script>
+
+
+    </head>
+
+    <body>
+        <div>
+            <!--#include virtual="/S2W/reusable/menu-header2.html" --> 
+        </div>
+        <br /><br /><br /><br />
+        <div>
+            <input name="crudMethod" id ="crudMethod" type="hidden" value="query">
+        </div>
+
+        <div id="accordion">
+            <div id="section1"><h3>Query an IoT Description</h3></div>
+
+            <div>
+                <fieldset style=" width: 20%;">
+                    <legend><i>IoT-A Ontologies</i></legend>
+                    <input id="resource" name="desctype" value="resource" checked="checked" type="radio">
+                    <span style="font-family: Calibri;">Resource</span>
+                    <input id="entity" name="desctype" value="entity" type="radio">
+                    <span style="font-family: Calibri;">Entity</span>
+                    <input id="service" name="desctype" value="service" type="radio">
+                    <span style="font-family: Calibri;">Service</span>                      
+                </fieldset>                
+                <br />
+                <div id="getTemplate"></div>
+                <br />
+                <fieldset style=" width: 50%;">
+                    <legend><i>SPARQL Input</i></legend>
+                    <textarea id ="querytextbox" class="resultRDF" name="Result" style="width: 100%; height: 300px;" ></textarea>
+                </fieldset>
+                <br />
+                <fieldset style=" width: 50%;">
+                    <table style="text-align: left;">
+                        <tbody>    
+                            <tr>
+                                <td>Format:</td>
+                                <td>
+                                    <input id="XML" name="resultFormat" value="XML" checked="checked" type="radio">
+                                    <span style="font-family: Calibri;">XML</span>
+                                    <input id="TXT" name="resultFormat" value="TXT" type="radio">
+                                    <span style="font-family: Calibri;">TEXT</span>
+                                    <input id="JSON" name="resultFormat" value="JSON" type="radio">
+                                    <span style="font-family: Calibri;">JSON</span>
+                                    <input id="CSV" name="resultFormat" value="CSV" type="radio">
+                                    <span style="font-family: Calibri;">CSV</span>
+                                    <input id="TSV" name="resultFormat" value="TSV" type="radio">
+                                    <span style="font-family: Calibri;">TSV</span>
+                                    <input id="BIO" name="resultFormat" value="BIO" type="radio">
+                                    <span style="font-family: Calibri;">BIO</span>
+                                </td>                            
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset> 
+                <br />
+                <table style="text-align: left;">
+                    <tbody> 
+                        <tr>
+                            <td><input type="button" id="submit2"  name="submit2" value="query"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="siteloader"></div>
+            </div>            
+            <div id="section3"><h3>Result</h3></div>
+            <div>
+                <div id="resultFormats">
+
+                </div>
+                <textarea id ="resulttextbox" class="resultRDF" name="Result" readonly style="width: 60%; height: 200px;" ></textarea>
+            </div>
+        </div>
+        <div>
+            <br /><br /><br />
+            <!--#include virtual="/S2W/reusable/logo-footer.html" -->  
+        </div>
+    </body>
+</html>

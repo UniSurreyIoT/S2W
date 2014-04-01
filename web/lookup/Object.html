@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>S2W - Lookup Object</title>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+        <link rel="StyleSheet" href="/S2W/CSS/background.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/input-formatting.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/tooltip.css" type="text/css">
+
+        <script  src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> <!--dont change!-->
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+        <script type="text/javascript" src="/S2W/scripts/lookup-multi-form.js"></script>
+
+
+    </head>
+
+    <body>
+        <div>
+            <!--#include virtual="/S2W/reusable/menu-header2.html" --> 
+        </div>
+        <br /><br /><br /><br /><br /><br />
+        <div>
+            <input name="crudMethod" id ="crudMethod" type="hidden" value="read">
+        </div>
+
+        <div id="accordion">
+            <div id="section1"><h3>Lookup an IoT Description</h3></div>
+
+            <div>
+                <fieldset style=" width: 20%;">
+                    <legend><i>IoT-A Ontologies</i></legend>
+                    <input id="resource" name="desctype" value="resource" checked="checked" type="radio">
+                    <span style="font-family: Calibri;">Resource</span>
+                    <input id="entity" name="desctype" value="entity" type="radio">
+                    <span style="font-family: Calibri;">Entity</span>
+                    <input id="service" name="desctype" value="service" type="radio">
+                    <span style="font-family: Calibri;">Service</span>                           
+                </fieldset>
+                <br />
+                <br />
+                <fieldset style=" width: 50%;">
+                    <table style="text-align: left;">
+                        <tbody>
+                            <tr>
+                                <td>ID:</td>
+                                <td></td>
+                                <td><input name="hasID" id="hasID" size="50" required="required" 
+                                           title='enter the ID of the description you want to lookup'>
+                                </td>
+                                <td></td>
+                                <td><div id="getDescProcess"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <br />
+                <fieldset style=" width: 50%;">
+                    <table style="text-align: left;">
+                        <tbody>    
+                            <tr>
+                                <td>Format:</td>
+                                <td>
+                                    <input id="RDF_XML" name="resultFormat" value="RDF/XML" checked="checked" type="radio">
+                                    <span style="font-family: Calibri;">RDF/XML</span>
+                                    <input id="RDF_XML-ABBREV" name="resultFormat" value="RDF/XML-ABBREV" type="radio">
+                                    <span style="font-family: Calibri;">RDF/XML-ABBREV</span>
+                                    <input id="TURTLE" name="resultFormat" value="TURTLE" type="radio">
+                                    <span style="font-family: Calibri;">TURTLE</span>
+                                    <input id="N-TRIPLE" name="resultFormat" value="N-TRIPLE" type="radio">
+                                    <span style="font-family: Calibri;">N-TRIPLE</span>
+                                    <input id="N3" name="resultFormat" value="N3" type="radio">
+                                    <span style="font-family: Calibri;">N3</span>
+                                    <input id="RDF_JSON" name="resultFormat" value="RDF/JSON" type="radio">
+                                    <span style="font-family: Calibri;">RDF/JSON</span>
+                                </td>                            
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset> 
+                <br />
+                <table style="text-align: left;">
+                    <tbody> 
+                        <tr>
+                            <td><input type=    "button" id="submit2"  name="submit2" value="lookup"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="siteloader"></div>
+            </div>            
+            <div id="section3"><h3>Result</h3></div>
+            <div>
+                <div id="resultFormats">
+
+                </div>
+                <textarea id ="resulttextbox" class="resultRDF" name="Result" readonly style="width: 60%; height: 200px;" ></textarea>                
+            </div>
+        </div>
+        <div>
+            <br /><br /><br />
+            <!--#include virtual="/S2W/reusable/logo-footer.html" -->  
+        </div>
+    </body>
+</html>

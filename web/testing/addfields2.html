@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery add / remove textbox example</title>
+        <style type="text/css">
+            div{
+                padding:8px;
+            }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+                var counter = 2;
+		
+                $("#addButton").click(function () {
+				
+                    if(counter>10){
+                        alert("Only 10 textboxes allow");
+                        return false;
+                    }   
+			
+//                    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+//                    newTextBoxDiv.after().html('<label>Input #' + counter + ' : </label><br>' +
+//                        '<input type="text" name="textbox' + counter + 
+//                        '" id="textbox' + counter + '" value="" >'); 
+                    
+                    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+                    newTextBoxDiv.after().html('<label>Input #' + counter + ' : </label><br>' +
+                        '<table id="attributetable'+counter + '" style="text-align: left;">' +
+                        '<tbody>'+
+                            '<tr>'+
+                                '<td>aaa<input type="text" name="aaa" id="aaa'+counter+'"></td>'+
+                                '<td>bbb<input type="text" name="bbb" id="bbb'+counter+'"></td>'+
+                                '<td>ccc<input type="text" name="ccc" id="ccc'+counter+'"></td>'+
+                                '<td>ddd<input type="text" name="ddd" id="ddd'+counter+'"></td>'+
+                                '<td>eee<input type="text" name="eee" id="eee'+counter+'"></td>'+
+                            '</tr>'+
+                        '</tbody>'+
+                    '</table>');                    
+            
+                    newTextBoxDiv.appendTo("#TextBoxesGroup");
+				
+                    counter++;
+                });
+
+                $("#removeButton").click(function () {
+                    if(counter==1){
+                        alert("No more textbox to remove");
+                        return false;
+                    }   
+                    counter--;
+			
+                    $("#TextBoxDiv" + counter).remove();
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id='TextBoxesGroup'>
+            <div id="TextBoxDiv1">
+                <label>Input #1 : </label>
+                    <br>
+                    <table id="attributetable" style="text-align: left;">
+                        <tbody>
+                            <tr>
+                                <td>aaa<input type="text" name="aaa" id="aaa"></td>
+                                <td>bbb<input type="text" name="bbb" id="bbb"></td>
+                                <td>ccc<input type="text" name="ccc" id="ccc"></td>
+                                <td>ddd<input type="text" name="ddd" id="ddd"></td>
+                                <td>eee<input type="text" name="eee" id="eee"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+<!--                <input type='text' id='textbox1' >-->
+            </div>
+        </div>
+        <input type='button' value='Add Input' id='addButton'>
+        <input type='button' value='Remove Input' id='removeButton'>        
+    </body>
+</html>

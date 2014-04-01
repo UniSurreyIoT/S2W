@@ -1,0 +1,18 @@
+PREFIX rm: <http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#>
+Select *
+WHERE {
+
+?uri rm:hasResourceID  ?hasResourceID.
+?uri rm:hasName  ?hasName.
+?uri rm:hasTag  ?hasTag.
+?uri rm:hasType ?hasType.
+?uri rm:isExposedThroughService  ?isExposedThroughService.
+?uri rm:hasTimeOffset  ?hasTimeOffset.
+?uri rm:isHostedOn  ?isHostedOn.
+?uri rm:hasResourceLocation  ?hasResourceLocation.
+?hasResourceLocation rm:hasLatitude  ?hasLatitude.
+?hasResourceLocation rm:hasLongitude  ?hasLongitude.
+?hasResourceLocation rm:hasAltitude  ?hasAltitude.
+?hasResourceLocation rm:hasGlobalLocation  ?hasGlobalLocation.
+?hasResourceLocation rm:hasLocalLocation  ?hasLocalLocation.
+FILTER ( ?uri = <

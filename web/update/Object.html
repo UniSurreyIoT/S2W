@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>S2W - Update Object</title>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+        <link rel="StyleSheet" href="/S2W/CSS/background.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/input-formatting.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/tooltip.css" type="text/css">
+
+        <script  src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> <!--dont change!-->
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+        <script type="text/javascript" src="/S2W/scripts/publish-multi-form.js"></script>
+    </head>
+    <body>
+        <div>
+            <!--#include virtual="/S2W/reusable/menu-header2.html" --> 
+        </div>
+        <br /><br /><br /><br /><br /><br />
+
+        <div>
+            <input name="crudMethod" id ="crudMethod" type="hidden" value="update">
+        </div>
+
+        <div id="accordion">
+            <div id="section1"><h3>Update an IoT Description</h3></div>
+            <div>
+                <fieldset style=" width: 20%;">
+                    <legend><i>IoT-A Ontologies</i></legend>
+                    <table style="text-align: left;">
+                        <tbody>
+                            <tr>
+                                <td><input id="btntest1" type="button" value="Resource" onclick="LoadPage1();"/></td>
+                                <td><input id="btntest2" type="button" value="Entity" onclick="LoadPage2();"/></td>
+                                <td><input id="btntest3" type="button" value="Service" onclick="LoadPage3();"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <br />
+                <hr>
+                <div id="siteloader"></div>
+            </div>            
+            <div id="section3"><h3>Result</h3></div>
+            <div>
+                <div id="resultFormats">
+
+                </div>
+                <textarea id ="resulttextbox" class="resultRDF" name="Result" readonly style="width: 60%; height: 200px;" ></textarea>                
+            </div>
+        </div>
+        <div>
+            <br /><br /><br />
+            <!--#include virtual="/S2W/reusable/logo-footer.html" -->  
+        </div>
+    </body>
+</html>

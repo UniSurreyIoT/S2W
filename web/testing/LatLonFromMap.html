@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"><head><!--
+  copyright (c) 2009 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+        -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>Map Overlay</title>
+        <!--        <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAuPsJpk3MBtDpJ4G8cqBnjRRaGTYH6UMl8mADNa0YKuWNNa8VNxQCzVBXTx2DYyXGsTOxpWhvIG7Djw" type="text/javascript"></script>-->
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript">
+
+            var markersArray = [];
+
+            function load() {
+
+                var latlng = new google.maps.LatLng(51.243615,-0.588341);
+                var myOptions = {
+                    zoom: 16,
+                    center: latlng,
+                    mapTypeId: google.maps.MapTypeId.HYBRID
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+               
+                var marker = new google.maps.Marker({
+                    map: map,
+                    draggable:true,
+                    animation: google.maps.Animation.DROP,
+                    position: latlng
+                });
+
+                document.getElementById("lat").innerHTML = latlng.lat().toFixed(6);
+                document.getElementById("lng").innerHTML = latlng.lng().toFixed(6);
+
+                google.maps.event.addListener(marker, "dragend", function() {
+                    var point = marker.getPosition();
+                    map.panTo(point);
+                    document.getElementById("lat").innerHTML = point.lat().toFixed(6);
+                    document.getElementById("lng").innerHTML = point.lng().toFixed(6);
+                });
+
+                google.maps.event.addListener(map, 'click', function(event) {
+                    marker.setMap(null);
+                    clearOverlays();
+                    addMarker(map, event.latLng);
+                    
+
+                });
+            }
+
+            function addMarker(map, location) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    draggable:true,
+                    animation: google.maps.Animation.DROP
+                    
+                });
+                var point = marker.getPosition();
+                    map.panTo(point);
+                    document.getElementById("lat").innerHTML = point.lat().toFixed(6);
+                    document.getElementById("lng").innerHTML = point.lng().toFixed(6);
+                markersArray.push(marker);
+            }
+
+            function clearOverlays() {
+                if (markersArray) {
+                    for (i in markersArray) {
+                        markersArray[i].setMap(null);
+                    }
+                }
+            }           
+        </script>
+
+    </head>
+    <body onload="load()" onunload="GUnload()" >
+        <div>
+            <p align="left">
+            <table  bgcolor="#FFFFCC" width="300">
+                <tr>
+                    <td><b>Latitude</b></td>
+                    <td><b>Longitude</b></td>
+                </tr>
+                <tr>
+                    <td id="lat"></td>
+                    <td id="lng"></td>
+                </tr>
+            </table>
+        </p>
+    </div>
+    <div>
+        <p>
+        <div align="center" id="map_canvas" style="width: 600px; height: 400px"><br/></div>
+    </p>
+</div>
+</html>

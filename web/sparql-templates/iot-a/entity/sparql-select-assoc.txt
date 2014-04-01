@@ -1,0 +1,13 @@
+PREFIX sm: <http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#>
+PREFIX qu: <http://purl.oclc.org/NET/ssnx/qu/quantity#>
+
+Select ?uri
+WHERE {
+
+?uri sm:hasOutput  ?hasOutput.
+?uri sm:hasGeohash  ?hasGeohash.
+
+FILTER regex(?hasGeohash, "geohash")
+FILTER regex(?hasOutput, "output")
+}
+LIMIT   1

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <title>Locate an Object</title>
+        <link rel="StyleSheet" href="/S2W/CSS/background.css" type="text/css">
+        <link rel="StyleSheet" href="/S2W/CSS/input-formatting.css" type="text/css">
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript">
+            var gmarkers = [];
+            var map;
+            //var ip = "http://localhost:8080/S2W/";
+            //var ip = "http://131.227.88.98:8080/S2W/";
+            //var ip = "http://iotserver3.ee.surrey.ac.uk:8080/S2W/";
+            var ip = "http://"+ window.location.hostname +":"+ window.document.location.port+ "/S2W/";
+            var infowindow = new google.maps.InfoWindow();
+    
+            function initializeData() {
+                var xmlHttp;
+
+                try { // Firefox, Opera 8.0+, Safari
+                    xmlHttp=new XMLHttpRequest();
+            
+                }
+                catch (e) { // Internet Explorer
+                    try {
+                        xmlHttp=new ActiveXObject("MSXML2.XMLHTTP.3.0"); //("Msxml2.XMLHTTP");
+                    }
+                    catch (e) {
+                        try {
+                            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        catch (e) {
+                            alert("Your browser does not support AJAX!");
+                            return false;
+                        }
+                    }
+                }
+                xmlHttp.onreadystatechange=function() {
+
+                    //written with some helps from http://econym.org.uk/gmap/wizard.htm
+
+                    var markers = xmlHttp.responseXML.getElementsByTagName("marker");
+                    var markers2 = xmlHttp.responseXML.getElementsByTagName("marker2");
+                    var side_bar_html_res="";
+                    var side_bar_html_ent="";
+
+                    //if (GBrowserIsCompatible()) {
+                    //map = new GMap2(document.getElementById("map_canvas"));
+                    var ccsr_latlng = new google.maps.LatLng(51.243595,-0.588341);
+                    var myOptions = {
+                        zoom: 20,
+                        center: ccsr_latlng,
+                        mapTypeId: google.maps.MapTypeId.HYBRID
+                    };
+                    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                    
+                    var imageBounds = new google.maps.LatLngBounds(
+                    //SW point first then NE point
+                    new google.maps.LatLng(51.243385,-0.588725),
+                    new google.maps.LatLng(51.243813,-0.587955)
+                    );
+                    var ccsrMap = new google.maps.GroundOverlay(
+                    "/S2W/images/ccsr-map-2D-first-floor-2.png",
+                    imageBounds);
+                    ccsrMap.setMap(map);
+                    
+                    map.setTilt(45);
+                    var len = markers.length;
+                    var len2 = markers2.length;
+
+                    for (var i = 0; i <len; i++) {
+                        var lat = parseFloat(markers[i].getAttribute("lat"));
+                        var lng = parseFloat(markers[i].getAttribute("lng"));
+                        //alert(lat, "  ", lng);
+                        //var point = new GLatLng(lat, lng);
+                        var point = new google.maps.LatLng(lat, lng);
+                        var html = markers[i].getAttribute("html");
+
+                        var image = '/S2W/images/res-on-map.png';
+                        var marker = createMarker(map, point,html,image);
+                            
+                        //map.addOverlay(marker);
+                        marker.setMap(map);
+
+                        //before moving to the next let's create the sidebar text
+                        side_bar_html_res += '<br/><a href="javascript:myclick(' + (i) + ')">'
+                            + markers[i].getAttribute("label"); + '</a><br />';
+
+                        gmarkers.push(marker);
+                    }
+                        
+                    for (var j = 0; j <len2; j++) {
+                        var lat2 = parseFloat(markers2[j].getAttribute("lat"));
+                        var lng2 = parseFloat(markers2[j].getAttribute("lng"));
+                        //alert(lat, "  ", lng);
+                        //var point2 = new GLatLng(lat2, lng2);
+                        var point2 = new google.maps.LatLng(lat2, lng2);
+                        var html2 = markers2[j].getAttribute("html");
+                        var image2 = '/S2W/images/ent-on-map.png';
+                        var marker2 = createMarker(map,point2,html2,image2);
+
+                        //map.addOverlay(marker2);
+                        marker2.setMap(map);
+
+                        //before moving to the next let's create the sidebar text
+                        side_bar_html_ent += '<br/><a href="javascript:myclick(' + (i) + ')">'
+                            + markers2[j].getAttribute("label"); + '</a><br />';
+                        i++;
+                        gmarkers.push(marker2);
+                    }
+
+                    document.getElementById("sidebar").innerHTML=side_bar_html_res;
+                    document.getElementById("sidebar2").innerHTML=side_bar_html_ent;
+                    // This function picks up the click and opens the corresponding info window
+                    //}
+                };
+
+                var url = ip + "OverlayMapsDemo";
+                //url = url + "&topic=" + topic;
+                xmlHttp.open("GET",url,true);
+                //alert (url);
+                xmlHttp.send(null);
+            }
+
+            // adapted from here: http://econym.org.uk/gmap/basic1.htm
+            function createMarker(map,point,html,image) {
+                //var image1 = new google.maps.MarkerImage(image, new google.maps.Size(100, 100));
+                var marker = new google.maps.Marker({
+                    map: map,
+                    animation: google.maps.Animation.DROP,
+                    position: point,                    
+                    title:"Object information",
+                    icon: image});
+                //var infowindow = new google.maps.InfoWindow();//{
+                //content: html });
+                google.maps.event.addListener(marker, 'click', function() {
+                    
+                    infowindow.setContent(html);
+                    infowindow.open(map,marker);});
+                return marker;
+            }
+
+            function myclick(j) {
+                google.maps.event.trigger(gmarkers[j], 'click');
+            }
+
+        </script>
+
+    </head>
+
+    <body onload="initializeData();" onunload="GUnload();">
+
+        <div>
+            <!--#include virtual="/S2W/reusable/menu-header2.html" --> 
+        </div>
+        <div>
+            <br /><br />
+            <div>
+                <header>
+                    <span style="text-align:center;font-weight: bold;font-family: Calibri;font-size: xx-large;">Object Map Overlay</span>
+                </header>
+            </div>
+            <br />
+            <br />
+        </div>
+        <div>
+            <fieldset>
+                <legend><i>Published Objects</i></legend>
+                <table style="text-align: left;" border="0" cellpadding="2" cellspacing="2">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <br />
+                                <div>
+                                    <span style="text-align: center; font-weight: bold; font-family: Calibri; font-size: large;">
+                                        <u>Resources</u>
+                                        <br />
+                                    </span>
+                                </div>
+                                <div id="sidebar"></div>
+                            </td>
+                            <td style="vertical-align: top;">&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td style="vertical-align: top;">&nbsp;<br />
+                            </td>
+                            <td style="vertical-align: top;"><br />
+                                <div>
+                                    <span style="text-align: center; font-weight: bold; font-family: Calibri; font-size: large;">
+                                        <u>Entities</u>
+                                        <br />
+                                    </span>
+                                </div>
+                                <div id="sidebar2"></div>
+                            </td>                    
+                            <td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br />
+                            </td>
+                            <td style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br />
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <fieldset>
+                                    <div id="map_canvas" style="width: 800px; height: 600px;"></div>
+                                </fieldset>
+                            </td>
+                            <td style="vertical-align: top;">&nbsp;
+                                <br />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+        <br />
+        <br />
+        <hr>
+        <div>        
+            <!--#include virtual="/S2W/reusable/logo-footer.html" -->  
+        </div>
+    </body>
+</html>

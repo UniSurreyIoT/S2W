@@ -1,0 +1,9 @@
+
+s1	service_26BA01	51.243412	-0.588156	http://purl.oclc.org/NET/ssnx/qu/quantity#temperature
+s2	service_25BA01	51.243410	-0.588093	http://purl.oclc.org/NET/ssnx/qu/quantity#humidity
+s3	service_24BA01	51.243412	-0.588031	http://purl.oclc.org/NET/ssnx/qu/quantity#luminosity
+s4	service_21BA01	51.243499	-0.588020	http://purl.oclc.org/NET/ssnx/qu/quantity#temperature
+s5	service_15BA01	51.243613	-0.588144	http://purl.oclc.org/NET/ssnx/qu/quantity#acceleration
+s6	service_32BA01	51.243776	-0.588018	http://purl.oclc.org/NET/ssnx/qu/quantity#temperature
+s7	service_46BA01	51.243775	-0.588613	http://purl.oclc.org/NET/ssnx/qu/quantity#temperature
+s8	service_49BA01	51.243593	-0.588611	http://purl.oclc.org/NET/ssnx/qu/quantity#acceleration

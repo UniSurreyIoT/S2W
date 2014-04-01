@@ -1,0 +1,45 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:EntityModel="http://www.surrey.ac.uk/ccsr/IoT-A/EntityModel.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ResourceModel="http://www.surrey.ac.uk/ccsr/IoT-A/ResourceModel.owl#" > 
+  <rdf:Description rdf:about="http://www.surrey.ac.uk/ccsr/IoT-A/EntityModel.owl#UNIS-BA-CCSR-32BA01">
+    <rdf:type rdf:resource="http://www.surrey.ac.uk/ccsr/IoT-A/EntityModel.owl#Entity"/>
+    <rdfs:label>UNIS-BA-CCSR-32BA01</rdfs:label>
+    <EntityModel:hasentityID>UNIS-BA-CCSR-32BA01</EntityModel:hasentityID>
+    <EntityModel:hasName>office 32BA01</EntityModel:hasName>
+    <EntityModel:hasTag>room</EntityModel:hasTag>
+    <EntityModel:hasURITag>http://dbpedia.org/resource/Surrey</EntityModel:hasURITag>
+    <EntityModel:hasTimeZone>http://www.w3.org/2006/timezone-world#GMT</EntityModel:hasTimeZone>
+    <EntityModel:isLinkedTo></EntityModel:isLinkedTo>
+    <EntityModel:hasLocalLocation>http://www.owl-ontologies.com/LocationModel.owl#BA_Building</EntityModel:hasLocalLocation>
+    <EntityModel:hasGlobalLocation>http://dbpedia.org/resource/Guildford</EntityModel:hasGlobalLocation>
+    <EntityModel:hasAltitude></EntityModel:hasAltitude>
+    <EntityModel:hasLatitude>51.243780</EntityModel:hasLatitude>
+    <EntityModel:hasLongitude>-0.588024</EntityModel:hasLongitude>
+    <EntityModel:hasDescription>this is office room in BA building, Stag Hill Campus, University of Surrey</EntityModel:hasDescription>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.surrey.ac.uk/ccsr/IoT-A/EntityModel.owl#t1">
+    <rdf:type rdf:resource="http://www.surrey.ac.uk/ccsr/IoT-A/EntityModel.owl#Entity"/>
+    <rdfs:label>t1</rdfs:label>
+    <EntityModel:hasentityID>t1</EntityModel:hasentityID>
+    <EntityModel:hasName>tariq</EntityModel:hasName>
+    <EntityModel:hasTag></EntityModel:hasTag>
+    <EntityModel:hasURITag></EntityModel:hasURITag>
+    <EntityModel:hasTimeZone>http://www.w3.org/2006/timezone-world#GMT</EntityModel:hasTimeZone>
+    <EntityModel:isLinkedTo></EntityModel:isLinkedTo>
+    <EntityModel:hasLocalLocation></EntityModel:hasLocalLocation>
+    <EntityModel:hasGlobalLocation></EntityModel:hasGlobalLocation>
+    <EntityModel:hasAltitude>55.144928</EntityModel:hasAltitude>
+    <EntityModel:hasLatitude>51.243444</EntityModel:hasLatitude>
+    <EntityModel:hasLongitude>-0.588019</EntityModel:hasLongitude>
+    <EntityModel:hasDescription></EntityModel:hasDescription>
+  </rdf:Description>
+</rdf:RDF>
